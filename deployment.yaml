@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: exp1-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: exp1
+  template:
+    metadata:
+      labels:
+        app: exp1
+    spec:
+      containers:
+      - name: exp1
+        image: <dockerhub-username>/exp1-app:latest
+        ports:
+        - containerPort: 3000
